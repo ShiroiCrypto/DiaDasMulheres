@@ -1,0 +1,215 @@
+:root {
+    --patricia: #ff6b6b;
+    --millena: #ffe66d;
+    --fabih: #ff9ff3;
+    --vitoria: #6c5ce7;
+    --bg-color: #fff9f0;
+    --text-dark: #2d3436;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Loading Screen Florido */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.flower-loader {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.petal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    clip-path: circle(50% at 50% 50%);
+    background: var(--fabih);
+    opacity: 0.6;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(45deg); }
+.petal:nth-child(3) { transform: rotate(90deg); }
+.petal:nth-child(4) { transform: rotate(135deg); }
+
+/* Conteúdo Principal */
+.main-content {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    color: var(--text-dark);
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.flower-icon {
+    animation: spinFlower 15s linear infinite;
+}
+
+/* Botões Jardim */
+.button-garden {
+    display: grid;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.floral-btn {
+    padding: 1.8rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.floral-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 20%, 
+        rgba(255,255,255,0.3) 50%, 
+        transparent 80%);
+    transform: rotate(45deg);
+    animation: shine 4s infinite;
+}
+
+.btn-bloom {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: bloomPulse 2s infinite;
+}
+
+/* Cores Específicas */
+.patricia { background: var(--patricia); }
+.millena { background: var(--millena); color: var(--text-dark); }
+.fabih { background: var(--fabih); }
+.vitoria { background: var(--vitoria); }
+
+/* Efeitos Hover */
+.floral-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.floral-btn:hover .btn-bloom {
+    animation: bloomPulse 0.8s infinite;
+}
+
+/* Elementos Florais */
+.floral-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20,50 Q40,30 60,50 Q40,70 20,50" fill="none" stroke="%23ff9ff3" stroke-width="0.5" opacity="0.1"/></svg>');
+    z-index: 1;
+}
+
+.floral-border {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--fabih) 0%, transparent 70%);
+    filter: blur(50px);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.floral-border:nth-child(odd) {
+    right: -100px;
+    bottom: -100px;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes spinFlower {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bloomPulse {
+    0% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.8); opacity: 0.1; }
+    100% { transform: scale(1); opacity: 0.3; }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.8rem;
+        flex-direction: column;
+    }
+    
+    .floral-btn {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .button-garden {
+        gap: 1.5rem;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}

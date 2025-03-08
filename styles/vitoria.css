@@ -1,0 +1,162 @@
+/* Tema Vintage */
+:root {
+    --vovó-blue: #6B8CAA;
+    --vintage-paper: #F3E9D2;
+    --ink-color: #3A2F1C;
+}
+
+.vintage-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.05) 3px,
+        rgba(0,0,0,0.05) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.memory-book {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.vintage-header {
+    text-align: center;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.vintage-header h1 {
+    font-size: 4rem;
+    color: var(--vovó-blue);
+    font-family: 'Playfair Display', serif;
+}
+
+.handwritten {
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 5.5rem;
+    margin-bottom: -1rem;
+}
+
+.subtitle {
+    display: block;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--ink-color);
+}
+
+.vintage-flower {
+    width: 150px;
+    height: 150px;
+    background: url('../assets/icons/vintage-flower.svg') no-repeat center;
+    position: absolute;
+    right: 10%;
+    top: -30px;
+    opacity: 0.3;
+}
+
+/* Efeito Polaroid */
+.polaroid-effect {
+    background: white;
+    padding: 1rem;
+    transform: rotate(-3deg);
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.tape {
+    position: absolute;
+    width: 40%;
+    height: 20px;
+    background: rgba(255,255,255,0.5);
+    transform: rotate(-45deg);
+    top: -10px;
+    left: 30%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Linha do Tempo Interativa */
+.timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 30px;
+    border-left: 3px solid var(--vovó-blue);
+}
+
+.timeline-item {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--vintage-paper);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+}
+
+.timeline-item::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: var(--vovó-blue);
+    border-radius: 50%;
+    position: absolute;
+    left: -39px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Botão de Voltar Estilizado */
+.back-button a {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 0.8rem 1.5rem;
+    background: var(--vovó-blue);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.hover-text {
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.3s;
+}
+
+.back-button:hover .hover-text {
+    max-width: 200px;
+    margin-left: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .vintage-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .handwritten {
+        font-size: 3.5rem;
+    }
+    
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,116 @@
+/* Tema Amoroso - Rosa e Branco */
+:root {
+    --soft-pink: #fff5f7;
+    --warm-pink: #ff7eb6;
+    --pure-white: #ffffff;
+    --text-color: #4a4a4a;
+}
+
+body {
+    background: var(--soft-pink);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.flower-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 85Q35 70 20 85 35 50 50 20 65 50 80 85 65 70 50 85Z" fill="%23ff7eb6" opacity="0.1"/></svg>');
+    z-index: 0;
+}
+
+.love-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.heart-animation {
+    font-size: 4rem;
+    animation: pulse 2s infinite;
+}
+
+.qualities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.quality-card {
+    background: var(--pure-white);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(255,126,182,0.1);
+}
+
+.quality-icon {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.message-bubble {
+    background: var(--pure-white);
+    padding: 2.5rem;
+    border-radius: 30px;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.handwritten {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    text-align: center;
+    color: var(--warm-pink);
+    line-height: 1.4;
+}
+
+.secret-note {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--soft-pink);
+    border-radius: 15px;
+    font-style: italic;
+}
+
+.flower-separator {
+    color: var(--warm-pink);
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.interactive-heart {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.heart-button {
+    background: var(--warm-pink);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.heart-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
