@@ -3,69 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patricia - Raiz do Amor</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/patricia.css">
+    <title>Patricia - Meu Primeiro Amor</title>
+    <style>
+        :root {
+            --vermelho-amor: #ff4d4d;
+            --bege-conforto: #fff5f5;
+            --sombra-suave: rgba(255, 77, 77, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #ffffff, var(--bege-conforto));
+            min-height: 100vh;
+        }
+
+        .container-mae {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .btn-voltar {
+            color: var(--vermelho-amor);
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            display: inline-block;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .btn-voltar:hover {
+            border-bottom-color: var(--vermelho-amor);
+        }
+
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .titulo-principal {
+            font-size: 3rem;
+            color: var(--vermelho-amor);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .titulo-principal::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: var(--vermelho-amor);
+        }
+
+        .grid-qualidades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card-qualidade {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra-suave);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card-qualidade:hover {
+            transform: translateY(-5px);
+        }
+
+        .icone {
+            font-size: 2.5rem;
+            color: var(--vermelho-amor);
+            margin-bottom: 1rem;
+        }
+
+        .mensagem {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            position: relative;
+            box-shadow: 0 5px 20px var(--sombra-suave);
+        }
+
+        .texto-manuscrito {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--vermelho-amor);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .coracao-interativo {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .btn-coracao {
+            background: none;
+            border: none;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-coracao:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .titulo-principal {
+                font-size: 2rem;
+            }
+            
+            .mensagem {
+                padding: 2rem;
+            }
+            
+            .texto-manuscrito {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="hearth-overlay"></div>
+    <div class="container-mae">
+        <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
 
-    <nav class="home-back">
-        <a href="../index.html" class="heart-button">
-            🏡 Voltar ao Lar
-        </a>
-    </nav>
-
-    <main class="mother-container">
-        <header class="eternal-header">
-            <div class="infinity-symbol">∞</div>
-            <h1>Primeiro <span class="highlight">Amor</span> da Minha Vida</h1>
-            <p class="subtitle">Sua força moldou quem eu sou</p>
+        <header class="cabecalho">
+            <h1 class="titulo-principal">Patricia - Raiz do Meu Ser</h1>
+            <p>Desde o ventre até a eternidade</p>
         </header>
 
-        <section class="legacy-grid">
-            <div class="love-card">
-                <div class="icon-wrapper">🛡️</div>
-                <h3>Proteção Incondicional</h3>
-                <p>Meu porto seguro em todos os temporais</p>
+        <div class="grid-qualidades">
+            <div class="card-qualidade">
+                <div class="icone">🛡️</div>
+                <h3>Proteção Eterna</h3>
+                <p>Meu escudo contra todas as tempestades</p>
             </div>
 
-            <div class="love-card">
-                <div class="icon-wrapper">🌺</div>
-                <h3>Beleza na Resistência</h3>
-                <p>Ensinou que força e delicadeza podem coexistir</p>
+            <div class="card-qualidade">
+                <div class="icone">🌺</div>
+                <h3>Amor Incondicional</h3>
+                <p>Base sólida que nunca vacilou</p>
             </div>
 
-            <div class="love-card">
-                <div class="icon-wrapper">🧵</div>
-                <h3>Costurando Histórias</h3>
-                <p>Cada memória um fio no tecido do meu ser</p>
+            <div class="card-qualidade">
+                <div class="icone">🧬</div>
+                <h3>Conexão Divina</h3>
+                <p>Laço que transcende o tempo e espaço</p>
             </div>
-        </section>
-
-        <section class="timeless-message">
-            <div class="vintage-frame">
-                <p class="handwritten">
-                    "Por cada noite sem dormir,<br>
-                    cada medo que você dissipou,<br>
-                    cada sonho que se tornou realidade...<br>
-                    <span class="eternal-love">Amo você para sempre</span>"
-                </p>
-                
-                <div class="secret-note">
-                    <p>Sua coragem me deu asas,<br>
-                    seu amor me deu raízes.<br>
-                    Não existiria sem seu "sim" à vida.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="heartbeat-animation">
-            <div class="pulse-circle"></div>
-            <div class="core-heart">❤️</div>
         </div>
-    </main>
 
-    <script src="../scripts/patricia.js"></script>
+        <div class="mensagem">
+            <p class="texto-manuscrito">
+                "Por cada noite sem dormir,<br> 
+                cada medo que você dissipou,<br>
+                cada sonho que se tornou realidade...<br>
+                <span style="font-size: 1.2em;">Amo você além da vida</span>"
+            </p>
+
+            <div class="coracao-interativo">
+                <button class="btn-coracao" onclick="createHearts()">❤️</button>
+            </div>
+
+            <div class="nota-secreta">
+                <p>Sua força me deu asas,<br>
+                seu amor me deu raízes.<br>
+                Cada respiro meu é um obrigado por existir.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createHearts() {
+            const cores = ['#ff4d4d', '#ff3838', '#ff6b6b'];
+            for(let i = 0; i < 20; i++) {
+                const coracao = document.createElement('div');
+                coracao.style.position = 'fixed';
+                coracao.style.left = Math.random() * 95 + '%';
+                coracao.style.top = Math.random() * 95 + '%';
+                coracao.style.fontSize = Math.random() * 30 + 20 + 'px';
+                coracao.style.color = cores[Math.floor(Math.random() * cores.length)];
+                coracao.style.opacity = '0';
+                coracao.style.animation = `voar ${Math.random() * 2 + 1}s`;
+                coracao.textContent = '❤️';
+                document.body.appendChild(coracao);
+
+                setTimeout(() => coracao.remove(), 2000);
+            }
+        }
+
+        // Animação CSS dinâmica
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes voar {
+                0% { transform: translateY(0) scale(1); opacity: 1; }
+                100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
