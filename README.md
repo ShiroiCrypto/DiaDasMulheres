@@ -53,5 +53,3 @@ Este projeto é pessoal e afetivo, mas estou aberto a ideias para torná-lo aind
 ## 💌 Licença
 
 Este projeto está licenciado sob a [GPL v3](https://www.gnu.org/licenses/gpl-3.0). Use com carinho.
-
-```
