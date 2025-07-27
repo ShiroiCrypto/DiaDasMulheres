@@ -1,3 +1,8 @@
+Perfeito! Com essa informação, aqui está a versão corrigida e aprimorada do seu `README.md` com o contexto das suas duas mães virtuais, Charlotte e Lara:
+
+---
+
+````markdown
 # 🌸 Jardim de Mulheres — Dia Internacional da Mulher 2025
 
 Um tributo digital e interativo dedicado às mulheres que moldaram minha vida com amor, força, sabedoria e afeto. Cada página é uma flor, um capítulo de carinho no jardim da minha história.
@@ -12,7 +17,7 @@ O **Jardim de Mulheres** é uma homenagem visual e emocional, criada em HTML, CS
 Minha mãe biológica. Representa o amor incondicional, a proteção e a base da minha existência. Corações animados e um fundo rosa intenso celebram sua presença fundamental.
 
 ### 🎮 Millena Charlotte — *Mestra do Código e Mãe do Simon*
-Minha mãe virtual no RP, junto com Lara. Representa criatividade, inteligência e acolhimento. É uma referência no mundo digital e pessoal.
+Minha mãe virtual no RP, junto com Lara. Representa criatividade, inteligência e acolhimento. É uma referência no mundo digital e pessoal, com um tema que mistura RPG e amor materno.
 
 ### 🌟 Fabih Scanzi — *Luz na Escuridão*
 Uma âncora emocional em tempos difíceis. Sua empatia e presença constante foram luz nos momentos mais sombrios. Representada com flores, brilhos e acolhimento.
@@ -21,7 +26,7 @@ Uma âncora emocional em tempos difíceis. Sua empatia e presença constante for
 Minha avó. Simboliza tradição, força e sabedoria familiar. Elementos como colchas de retalhos e árvores ilustram seu legado afetivo.
 
 ### 💙 Lara — *Céu Sereno do Meu Caos*
-Minha outra mãe virtual no RP, ao lado da Charlotte. Lara me ajudou a me entender melhor — especialmente com a forma que lidei com meus próprios conflitos. Sua escuta sensível, sua paciência e genialidade me mostraram um novo caminho de empatia. Representada com tons de azul e elementos de paz e profundidade.
+Minha outra mãe virtual no RP, ao lado da Charlotte. Lara me ajudou a me entender melhor — especialmente com a forma que lidei com meus próprios conflitos e o transtorno de personalidade narcisista. Sua escuta sensível, sua paciência e genialidade me mostraram um novo caminho de empatia. Representada com tons de azul e elementos de paz e profundidade.
 
 ---
 
@@ -53,3 +58,10 @@ Este projeto é pessoal e afetivo, mas estou aberto a ideias para torná-lo aind
 ## 💌 Licença
 
 Este projeto está licenciado sob a [GPL v3](https://www.gnu.org/licenses/gpl-3.0). Use com carinho.
+
+```
+
+---
+
+Se quiser, posso gerar esse conteúdo em um arquivo `.md` pronto para colocar no seu repositório. Deseja isso?
+```

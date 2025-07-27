@@ -1,10 +1,16 @@
 // ===== SCRIPT ESPECÍFICO PARA LARA - EFEITOS AZUIS AVANÇADOS =====
 
 // ===== EFEITO DE FLORES CAINDO QUANDO CLICAR NO BOTÃO =====
+let flowerClickCount = 0;
 function createFlowers() {
     const flores = ['🌸', '🌼', '🌺', '🌻', '🌷', '💙', '✨'];
     const cores = ['#4a90e2', '#5ba3f0', '#6bb6ff', '#7cc9ff', '#8ddcff', '#74b9ff', '#0984e3'];
     const container = document.querySelector('.interacao-azul');
+
+    flowerClickCount++;
+    if (flowerClickCount === 8) {
+        window.location.href = 'galeria.html';
+    }
 
     for (let i = 0; i < 10; i++) {
         const flor = document.createElement('div');
@@ -42,6 +48,7 @@ function createPetalSound() {
     for (let i = 0; i < 3; i++) {
         const soundWave = document.createElement('div');
         soundWave.className = 'sound-wave';
+        soundWave.style.animationDelay = `${i * 0.2}s`;
         container.appendChild(soundWave);
         setTimeout(() => soundWave.remove(), 1200);
     }
@@ -211,11 +218,13 @@ function addDynamicAnimations() {
 
         @keyframes soundWave {
             0% {
-                transform: scale(0);
+                width: 0;
+                height: 0;
                 opacity: 0.6;
             }
             100% {
-                transform: scale(2);
+                width: 200px;
+                height: 200px;
                 opacity: 0;
             }
         }
