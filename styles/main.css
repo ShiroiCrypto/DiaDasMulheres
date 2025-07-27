@@ -1,179 +1,372 @@
+/* ===== VARIÁVEIS CSS MODERNAS ===== */
 :root {
-    --patricia: #ff6b6b;
-    --millena: #ffe66d;
-    --fabih: #ff9ff3;
-    --vitoria: #6c5ce7;
-    --bg-color: #fff9f0;
+    /* Cores principais das homenageadas */
+    --patricia: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    --millena: linear-gradient(135deg, #ffe66d, #ffed4e);
+    --fabih: linear-gradient(135deg, #ff9ff3, #f368e0);
+    --vitoria: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    --lara: linear-gradient(135deg, #4a90e2, #74b9ff);
+    
+    /* Cores de fundo e texto */
+    --bg-primary: #fff9f0;
+    --bg-secondary: #f8f4f0;
     --text-dark: #2d3436;
+    --text-light: #636e72;
+    
+    /* Sombras e efeitos */
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
+    
+    /* Bordas e raios */
+    --border-radius-sm: 12px;
+    --border-radius-md: 20px;
+    --border-radius-lg: 30px;
+    --border-radius-xl: 40px;
+    
+    /* Transições */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ===== RESET E BASE ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Nunito', sans-serif;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-    background: var(--bg-color);
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-dark);
+    line-height: 1.6;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    font-size: 1rem;
 }
 
-/* Loading Screen Florido */
+/* ===== LOADING SCREEN APRIMORADO ===== */
 .loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-color);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    transition: opacity 0.8s ease-in-out;
+    z-index: 9999;
+    transition: all var(--transition-slow);
+    backdrop-filter: blur(10px);
+}
+
+.loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .flower-loader {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     position: relative;
-    animation: float 3s ease-in-out infinite;
+    animation: floatLoader 4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
 }
 
 .petal {
     width: 100%;
     height: 100%;
     position: absolute;
-    clip-path: circle(50% at 50% 50%);
+    border-radius: 50%;
     background: var(--fabih);
-    opacity: 0.6;
+    opacity: 0.7;
+    animation: petalRotate 3s linear infinite;
 }
 
-.petal:nth-child(1) { transform: rotate(0deg); }
-.petal:nth-child(2) { transform: rotate(45deg); }
-.petal:nth-child(3) { transform: rotate(90deg); }
-.petal:nth-child(4) { transform: rotate(135deg); }
+.petal:nth-child(1) { 
+    transform: rotate(0deg) scale(0.8);
+    animation-delay: 0s;
+}
+.petal:nth-child(2) { 
+    transform: rotate(45deg) scale(0.9);
+    animation-delay: 0.5s;
+}
+.petal:nth-child(3) { 
+    transform: rotate(90deg) scale(1);
+    animation-delay: 1s;
+}
+.petal:nth-child(4) { 
+    transform: rotate(135deg) scale(0.85);
+    animation-delay: 1.5s;
+}
 
-/* Conteúdo Principal */
+.loader p {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 500;
+    animation: pulseText 2s ease-in-out infinite;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
 .main-content {
-    padding: 2rem 1rem;
-    max-width: 800px;
+    padding: 3rem 2rem;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.main-content.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all var(--transition-medium);
+}
+
+.main-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== TÍTULO PRINCIPAL ===== */
 .title {
     text-align: center;
     color: var(--text-dark);
-    margin-bottom: 3rem;
-    font-size: 2.2rem;
+    margin-bottom: 4rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: var(--fabih);
+    border-radius: 2px;
+    animation: titleUnderline 3s ease-in-out infinite;
 }
 
 .flower-icon {
-    animation: spinFlower 15s linear infinite;
+    font-size: 1.5em;
+    animation: spinFlower 20s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-/* Botões Jardim */
+/* ===== JARDIM DE BOTÕES ===== */
 .button-garden {
     display: grid;
-    gap: 2rem;
+    gap: 2.5rem;
     position: relative;
     z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .floral-btn {
-    padding: 1.8rem;
+    padding: 2rem 2.5rem;
     border: none;
-    border-radius: 30px;
-    font-size: 1.3rem;
+    border-radius: var(--border-radius-xl);
+    font-size: 1.4rem;
+    font-weight: 600;
     color: white;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 
 .floral-btn::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, 
-        transparent 20%, 
-        rgba(255,255,255,0.3) 50%, 
-        transparent 80%);
-    transform: rotate(45deg);
-    animation: shine 4s infinite;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transition: left var(--transition-medium);
+}
+
+.floral-btn:hover::before {
+    left: 100%;
+}
+
+.floral-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(20px);
+    opacity: 0.3;
+    transition: all var(--transition-medium);
+}
+
+.floral-btn:hover::after {
+    opacity: 0.6;
+    filter: blur(30px);
 }
 
 .btn-bloom {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background: rgba(255,255,255,0.3);
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
     border-radius: 50%;
-    filter: blur(10px);
-    animation: bloomPulse 2s infinite;
+    filter: blur(8px);
+    animation: bloomPulse 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
-/* Cores Específicas */
-.patricia { background: var(--patricia); }
-.millena { background: var(--millena); color: var(--text-dark); }
-.fabih { background: var(--fabih); }
-.vitoria { background: var(--vitoria); }
+/* ===== CORES ESPECÍFICAS DOS BOTÕES ===== */
+.floral-btn.patricia { 
+    background: var(--patricia);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+.floral-btn.millena { 
+    background: var(--millena);
+    color: var(--text-dark);
+    box-shadow: 0 10px 30px rgba(255, 230, 109, 0.3);
+}
+.floral-btn.fabih { 
+    background: var(--fabih);
+    box-shadow: 0 10px 30px rgba(255, 159, 243, 0.3);
+}
+.floral-btn.vitoria { 
+    background: var(--vitoria);
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.3);
+}
+.floral-btn.lara { 
+    background: var(--lara);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+}
 
-/* Efeitos Hover */
+/* ===== EFEITOS HOVER APRIMORADOS ===== */
 .floral-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .floral-btn:hover .btn-bloom {
-    animation: bloomPulse 0.8s infinite;
+    animation: bloomPulse 0.6s ease-in-out infinite;
+    transform: scale(1.5);
 }
 
-/* Elementos Florais */
+.floral-btn:active {
+    transform: translateY(-4px) scale(0.98);
+    transition: all 0.1s;
+}
+
+/* ===== ELEMENTOS FLORAIS DE FUNDO ===== */
 .floral-frame {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M20,50 Q40,30 60,50 Q40,70 20,50" fill="none" stroke="%23ff9ff3" stroke-width="0.5" opacity="0.1"/></svg>');
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 159, 243, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 230, 109, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(108, 92, 231, 0.1) 0%, transparent 50%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .floral-border {
     position: fixed;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     background: radial-gradient(circle, var(--fabih) 0%, transparent 70%);
-    filter: blur(50px);
-    opacity: 0.1;
+    filter: blur(60px);
+    opacity: 0.08;
     pointer-events: none;
+    animation: floatBorder 8s ease-in-out infinite;
 }
 
 .floral-border:nth-child(odd) {
-    right: -100px;
-    bottom: -100px;
+    right: -150px;
+    bottom: -150px;
+    animation-delay: -4s;
 }
 
-/* Animations */
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+/* ===== PARTÍCULAS DE PÓLEN ===== */
+.pollen-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: pollenFloat 1s ease-out forwards;
+}
+
+/* ===== ANIMAÇÕES AVANÇADAS ===== */
+@keyframes floatLoader {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-30px) rotate(5deg); 
+    }
+}
+
+@keyframes petalRotate {
+    0% { 
+        transform: rotate(0deg) scale(0.8); 
+        opacity: 0.7;
+    }
+    50% { 
+        transform: rotate(180deg) scale(1.1); 
+        opacity: 1;
+    }
+    100% { 
+        transform: rotate(360deg) scale(0.8); 
+        opacity: 0.7;
+    }
+}
+
+@keyframes pulseText {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
 }
 
 @keyframes spinFlower {
@@ -182,25 +375,83 @@ body {
 }
 
 @keyframes bloomPulse {
-    0% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.8); opacity: 0.1; }
-    100% { transform: scale(1); opacity: 0.3; }
+    0% { 
+        transform: scale(1); 
+        opacity: 0.4; 
+    }
+    50% { 
+        transform: scale(1.8); 
+        opacity: 0.1; 
+    }
+    100% { 
+        transform: scale(1); 
+        opacity: 0.4; 
+    }
 }
 
-@keyframes shine {
-    0% { transform: translateX(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) rotate(45deg); }
+@keyframes titleUnderline {
+    0%, 100% { 
+        width: 60%; 
+        opacity: 1; 
+    }
+    50% { 
+        width: 80%; 
+        opacity: 0.7; 
+    }
 }
 
-/* Responsivo */
+@keyframes floatBorder {
+    0%, 100% { 
+        transform: translateY(0) scale(1); 
+        opacity: 0.08; 
+    }
+    50% { 
+        transform: translateY(-20px) scale(1.1); 
+        opacity: 0.12; 
+    }
+}
+
+@keyframes pollenFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ===== RESPONSIVIDADE AVANÇADA ===== */
 @media (max-width: 768px) {
+    .main-content {
+        padding: 2rem 1rem;
+    }
+    
     .title {
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
         flex-direction: column;
+        gap: 1rem;
     }
     
     .floral-btn {
-        padding: 1.2rem;
+        padding: 1.5rem 2rem;
+        font-size: 1.2rem;
+    }
+    
+    .button-garden {
+        gap: 2rem;
+    }
+    
+    .flower-loader {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floral-btn {
+        padding: 1.2rem 1.5rem;
         font-size: 1.1rem;
     }
     
@@ -209,7 +460,44 @@ body {
     }
 }
 
+/* ===== UTILITÁRIOS ===== */
 .hidden {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ===== EFEITOS DE FOCO PARA ACESSIBILIDADE ===== */
+.floral-btn:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* ===== ANIMAÇÕES DE ENTRADA ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ===== EFEITOS DE GLASSMORPHISM ===== */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
