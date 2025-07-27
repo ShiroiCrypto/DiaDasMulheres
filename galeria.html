@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Lara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-lara: #4a90e2;
+            --azul-claro: #d0e7ff;
+            --azul-suave: #e8f4fd;
+            --azul-escuro: #2c5aa0;
+            --azul-gradiente: linear-gradient(135deg, #4a90e2 0%, #74b9ff 50%, #0984e3 100%);
+            --azul-glass: rgba(74, 144, 226, 0.1);
+            --sombra-azul: rgba(74, 144, 226, 0.15);
+            --sombra-azul-forte: rgba(74, 144, 226, 0.3);
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, var(--azul-suave) 50%, #f8f9ff 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .container-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-voltar {
+            color: var(--azul-lara);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            transition: all var(--transition-medium);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-voltar:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--azul-lara);
+        }
+
+        .cabecalho {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .titulo-principal {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--azul-lara);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .titulo-principal::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: var(--azul-gradiente);
+            border-radius: 2px;
+            animation: titleUnderline 3s ease-in-out infinite;
+        }
+
+        .subtitulo {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            background-image: linear-gradient(white, white), var(--azul-gradiente);
+            border-image: var(--azul-gradiente) 1;
+            aspect-ratio: 16 / 9;
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 16px 48px var(--sombra-azul-forte), 0 0 20px var(--azul-lara);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--transition-medium);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--azul-lara);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .lightbox-close, .lightbox-prev, .lightbox-next {
+            position: absolute;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(74, 144, 226, 0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition-medium);
+        }
+
+        .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+            background: var(--azul-lara);
+        }
+
+        .lightbox-close {
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .lightbox-prev {
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-next {
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @keyframes titleUnderline {
+            0%, 100% { 
+                width: 80%; 
+                opacity: 1; 
+            }
+            50% { 
+                width: 60%; 
+                opacity: 0.7; 
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container-gallery {
+                padding: 2rem 1rem;
+            }
+
+            .titulo-principal {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-item {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                border-radius: 10px;
+            }
+
+            .gallery-caption {
+                font-size: 0.9rem;
+                padding: 0.4rem;
+            }
+
+            .lightbox-close, .lightbox-prev, .lightbox-next {
+                font-size: 1.5rem;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-gallery">
+        <a href="lara.html" class="btn-voltar">← Voltar para a Página de Lara</a>
+
+        <header class="cabecalho">
+            <h1 class="titulo-principal">Galeria de Lara</h1>
+            <p class="subtitulo">Momentos especiais que capturam sua essência</p>
+        </header>
+
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="1">
+                <img src="assets/1.png" alt="Foto de Lara 1">
+                <div class="gallery-caption">Momento 1</div>
+            </div>
+            <div class="gallery-item" data-index="2">
+                <img src="assets/2.png" alt="Foto de Lara 2">
+                <div class="gallery-caption">Momento 2</div>
+            </div>
+            <div class="gallery-item" data-index="3">
+                <img src="assets/3.png" alt="Foto de Lara 3">
+                <div class="gallery-caption">Momento 3</div>
+            </div>
+            <div class="gallery-item" data-index="4">
+                <img src="assets/4.png" alt="Foto de Lara 4">
+                <div class="gallery-caption">Momento 4</div>
+            </div>
+            <div class="gallery-item" data-index="5">
+                <img src="assets/5.png" alt="Foto de Lara 5">
+                <div class="gallery-caption">Momento 5</div>
+            </div>
+            <div class="gallery-item" data-index="6">
+                <img src="assets/6.png" alt="Foto de Lara 6">
+                <div class="gallery-caption">Momento 6</div>
+            </div>
+            <div class="gallery-item" data-index="7">
+                <img src="assets/7.png" alt="Foto de Lara 7">
+                <div class="gallery-caption">Momento 7</div>
+            </div>
+            <div class="gallery-item" data-index="8">
+                <img src="assets/8.png" alt="Foto de Lara 8">
+                <div class="gallery-caption">Momento 8</div>
+            </div>
+            <div class="gallery-item" data-index="9">
+                <img src="assets/9.png" alt="Foto de Lara 9">
+                <div class="gallery-caption">Momento 9</div>
+            </div>
+        </div>
+
+        <div class="lightbox">
+            <span class="lightbox-close">×</span>
+            <span class="lightbox-prev">←</span>
+            <span class="lightbox-next">→</span>
+            <img src="" alt="Foto Ampliada">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.querySelector('.lightbox');
+            const lightboxImg = lightbox.querySelector('img');
+            const lightboxClose = lightbox.querySelector('.lightbox-close');
+            const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+            const lightboxNext = lightbox.querySelector('.lightbox-next');
+            let currentIndex = 0;
+
+            function openLightbox(index) {
+                currentIndex = index;
+                lightboxImg.src = `assets/${index}.png`;
+                lightboxImg.alt = `Foto de Lara ${index}`;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function showPrevImage() {
+                currentIndex = currentIndex === 1 ? 9 : currentIndex - 1;
+                lightboxImg.src = `assets/${currentIndex}.png`;
+                lightboxImg.alt = `Foto de Lara ${currentIndex}`;
+            }
+
+            function showNextImage() {
+                currentIndex = currentIndex === 9 ? 1 : currentIndex + 1;
+                lightboxImg.src = `assets/${currentIndex}.png`;
+                lightboxImg.alt = `Foto de Lara ${currentIndex}`;
+            }
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const index = parseInt(item.dataset.index);
+                    openLightbox(index);
+                });
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') showPrevImage();
+                    if (e.key === 'ArrowRight') showNextImage();
+                    if (e.key === 'Escape') closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
