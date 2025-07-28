@@ -11,7 +11,7 @@ O **Jardim de Mulheres** é uma homenagem visual e emocional, criada em HTML, CS
 ### ❤️ Patricia — *Raiz do Meu Ser*
 Minha mãe biológica. Representa o amor incondicional, a proteção e a base da minha existência. Corações animados e um fundo rosa intenso celebram sua presença fundamental.
 
-### 🎮 Millena Charlotte — *Mestra do Código e Mãe do Simon*
+### 🎮 Millena Charlotte — *Mestra do Código*
 Minha mãe virtual no RP, junto com Lara. Representa criatividade, inteligência e acolhimento. É uma referência no mundo digital e pessoal, com um tema que mistura RPG e amor materno.
 
 ### 🌟 Fabih Scanzi — *Luz na Escuridão*
