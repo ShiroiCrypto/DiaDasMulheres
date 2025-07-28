@@ -1,7 +1,3 @@
-Perfeito! Com essa informação, aqui está a versão corrigida e aprimorada do seu `README.md` com o contexto das suas duas mães virtuais, Charlotte e Lara:
-
----
-
 ````markdown
 # 🌸 Jardim de Mulheres — Dia Internacional da Mulher 2025
 
@@ -27,8 +23,6 @@ Minha avó. Simboliza tradição, força e sabedoria familiar. Elementos como co
 
 ### 💙 Lara — *Céu Sereno do Meu Caos*
 Minha outra mãe virtual no RP, ao lado da Charlotte. Lara me ajudou a me entender melhor — especialmente com a forma que lidei com meus próprios conflitos e o transtorno de personalidade narcisista. Sua escuta sensível, sua paciência e genialidade me mostraram um novo caminho de empatia. Representada com tons de azul e elementos de paz e profundidade.
-
----
 
 ## 💡 Tecnologias Utilizadas
 
@@ -59,9 +53,3 @@ Este projeto é pessoal e afetivo, mas estou aberto a ideias para torná-lo aind
 
 Este projeto está licenciado sob a [GPL v3](https://www.gnu.org/licenses/gpl-3.0). Use com carinho.
 
-```
-
----
-
-Se quiser, posso gerar esse conteúdo em um arquivo `.md` pronto para colocar no seu repositório. Deseja isso?
-```
