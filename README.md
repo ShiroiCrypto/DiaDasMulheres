@@ -1,4 +1,3 @@
-````markdown
 # 🌸 Jardim de Mulheres — Dia Internacional da Mulher 2025
 
 Um tributo digital e interativo dedicado às mulheres que moldaram minha vida com amor, força, sabedoria e afeto. Cada página é uma flor, um capítulo de carinho no jardim da minha história.
